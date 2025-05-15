@@ -1,19 +1,19 @@
 name: End-to-end tests
 on: push
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+        
+      # Instala dependências e executa os testes
       - name: Cypress run
         uses: cypress-io/github-action@v5
 
-      # Upload screenshots on failure
-      - name: Upload Cypress Screenshots
+      # Upload de screenshots (somente em caso de falha)
+      - name: Upload screenshots
         if: failure()
         uses: actions/upload-artifact@v3
         with:
@@ -21,8 +21,8 @@ jobs:
           path: cypress/screenshots
           if-no-files-found: ignore
 
-      # Upload Cypress Videos
-      - name: Upload Cypress Videos
+      # Upload de vídeos
+      - name: Upload videos
         uses: actions/upload-artifact@v3
         with:
           name: cypress-videos
