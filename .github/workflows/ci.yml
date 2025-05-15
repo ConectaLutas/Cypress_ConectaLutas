@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -18,12 +18,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Wait for the hosted app to be ready
+      - name: Wait for hosted app
         run: npx wait-on https://conectalutas.netlify.app
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v5
         with:
           record: false
-          start: false
+          start: ""
           config: baseUrl=https://conectalutas.netlify.app
