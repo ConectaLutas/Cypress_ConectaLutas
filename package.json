@@ -8,7 +8,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "ci": "CI=true npm run build && npx cypress run"
   },
   "keywords": ["campeonatos", "automacao", "cypress", "react"],
   "author": "Seu Nome",
@@ -21,5 +22,8 @@
   },
   "devDependencies": {
     "cypress": "^14.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
