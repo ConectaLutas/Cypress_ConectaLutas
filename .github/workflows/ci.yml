@@ -18,13 +18,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build app
-        run: npm run build
-
-      - name: Start app
-        run: npm start &
-      
-      - name: Wait for localhost
+      - name: Wait for the hosted app to be ready
         run: npx wait-on https://conectalutas.netlify.app
 
       - name: Run Cypress tests
@@ -32,3 +26,4 @@ jobs:
         with:
           record: false
           start: false
+          config: baseUrl=https://conectalutas.netlify.app
