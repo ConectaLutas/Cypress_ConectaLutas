@@ -6,22 +6,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v5
-      - uses: actions/upload-artifact@v3
-        # add the line below to store screenshots only on failures
+
+      # Upload screenshots on failure
+      - name: Upload Cypress Screenshots
         if: failure()
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
-      - uses: actions/upload-artifact@v3
+          if-no-files-found: ignore
+
+      # Upload Cypress Videos
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-videos
           path: cypress/videos
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn fff
-        
-          
-         
+          if-no-files-found: ignore
