@@ -8,7 +8,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "ci": "CI=true npm run build && npx cypress run"
   },
   "keywords": [
     "campeonatos",
@@ -25,10 +26,17 @@
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "cypress": "^14.3.3",
     "typescript": "^4.9.5"
   },
   "resolutions": {
     "typescript": "4.9.5"
+=======
+    "cypress": "^14.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+>>>>>>> e8412acdc10442af9081c06973af8bcabcbc06b4
   }
 }
