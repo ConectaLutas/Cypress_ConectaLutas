@@ -1,6 +1,11 @@
+# .github/workflows/e2e.ymll
 name: End-to-end tests
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  repository_dispatch:
+    types: [run-e2e-tests]
 
 jobs:
   cypress-run:
