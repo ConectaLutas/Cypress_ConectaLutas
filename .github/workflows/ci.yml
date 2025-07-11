@@ -1,4 +1,4 @@
-# .github/workflows/e2e.yml
+# .github/workflows/e2e.ymll
 name: End-to-end tests
 
 on:
